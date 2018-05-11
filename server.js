@@ -20,7 +20,9 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
       mongoDatabase = process.env[mongoServiceName + '_DATABASE'],
       mongoPassword = process.env[mongoServiceName + '_PASSWORD']
       mongoUser = process.env[mongoServiceName + '_USER'];
-
+  "mongodb+srv://kay:myRealPassword@cluster0.mongodb.net/test";
+  mongoURL = mongoHost + "://" + mongoUser + ':' + mongoPassword + '@' + mongoDatabase;
+  /*
   if (mongoHost && mongoPort && mongoDatabase) {
     mongoURLLabel = mongoURL = 'mongodb://';
     if (mongoUser && mongoPassword) {
@@ -30,7 +32,7 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
     mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
     mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
     console.log('MongoUrl', mongoURL);
-  }
+  }*/
 }
 var db = null,
     dbDetails = new Object();
@@ -39,7 +41,7 @@ var initDb = function(callback) {
   if (mongoURL == null) return;
 
   var mongodb = require('mongodb');
-  if (mongodb == null) return; 
+  if (mongodb == null) return;
   console.log('MongoUrl', mongoURL);
   mongodb.connect(mongoURL, function(err, conn) {
     if (err) {
