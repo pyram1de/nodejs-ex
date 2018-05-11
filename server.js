@@ -39,8 +39,8 @@ var initDb = function(callback) {
   if (mongoURL == null) return;
 
   var mongodb = require('mongodb');
-  if (mongodb == null) return;
-
+  if (mongodb == null) return; 
+  console.log('MongoUrl', mongoURL);
   mongodb.connect(mongoURL, function(err, conn) {
     if (err) {
       callback(err);
