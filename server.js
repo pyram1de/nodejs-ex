@@ -21,9 +21,9 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
       mongoPassword = process.env[mongoServiceName + '_PASSWORD']
       mongoUser = process.env[mongoServiceName + '_USER'];
   //"mongodb+srv://kay:myRealPassword@cluster0.mongodb.net/test";
-  mongoURL = mongoHost + "://" + mongoUser + ':' + mongoPassword + '@' + mongoDatabase;
+  mongoURL = mongoHost + "://" + mongoUser + ':' + mongoPassword + '@' + mongoPort + '/' +  mongoDatabase;
   console.log('MONGO URL', mongoURL);
-  /*
+  
   if (mongoHost && mongoPort && mongoDatabase) {
     mongoURLLabel = mongoURL = 'mongodb://';
     if (mongoUser && mongoPassword) {
@@ -33,7 +33,7 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
     mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
     mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
     console.log('MongoUrl', mongoURL);
-  }*/
+  }
 }
 var db = null,
     dbDetails = new Object();
