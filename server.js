@@ -20,8 +20,9 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
       mongoDatabase = process.env[mongoServiceName + '_DATABASE'],
       mongoPassword = process.env[mongoServiceName + '_PASSWORD']
       mongoUser = process.env[mongoServiceName + '_USER'];
-  "mongodb+srv://kay:myRealPassword@cluster0.mongodb.net/test";
+  //"mongodb+srv://kay:myRealPassword@cluster0.mongodb.net/test";
   mongoURL = mongoHost + "://" + mongoUser + ':' + mongoPassword + '@' + mongoDatabase;
+  console.log('MONGO URL', mongoURL);
   /*
   if (mongoHost && mongoPort && mongoDatabase) {
     mongoURLLabel = mongoURL = 'mongodb://';
